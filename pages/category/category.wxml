@@ -1,39 +1,65 @@
-<!--pages/category/category.wxml-->
-<view class='content'>
 
-  <scroll-view class='left' scroll-y="true" scroll-into-view="{{categoryToView}}">
+<view class="container">
+    <view class="search-content">
+      <image src="/images/search-pic.png" class="search-icon" />
+      <input placeholder="请输入搜索内容" class="search-input" maxlength="30" confirm-type="搜索" bindinput='listenerSearchInput' bindconfirm='toSearch'>
+      </input>
+      <button class='search-btn' bindtap="toSearch">搜索
+      </button>
+    </view>
 
-    <block wx:for="{{categories}}" wx:key="id">
 
-      <view class="category-item {{categorySelected==item.scrollId?'category-item-active':''}}" data-id='{{item.scrollId}}' id='{{item.scrollId}}' bindtap='onCategoryClick'>
-        <text style="font-size: 12px; color: gray">{{item.name}}</text>
-      </view>
-
-    </block>
-
-  </scroll-view>
-
-  <scroll-view class='right' scroll-y="true" scroll-into-view="{{goodsToView}}" bindscroll="scroll">
-    <block wx:for="{{goodsWrap}}" wx:key="id">
-
-      <view class="goodsWrap-category" id='{{item.scrollId}}'>
-        <text style="font-size: 12px">{{item.name}}</text>
-      </view>
-
-      <block wx:for="{{item.goods}}" wx:for-item="goods" wx:key="id">
-        <view class='goods-item'>
-
-          <view class="goods-description">
-            <image class='goods-pic' mode='aspectFill' lazy-load="true" src="{{goods.pic}}_m" bindtap="toDetailsTap" data-id="{{goods.id}}"></image>
-
-            <view class='goods-info'>
-              <view class="goods-title" bindtap="toDetailsTap" data-id="{{goods.id}}">{{goods.name}}</view>
-              <view class="goods-price">￥{{goods.minPrice}}</view>
+    <scroll-view class="type-navbar" scroll-x="true" scroll-top="{{scrolltop}}">
+            <view class="type-box {{activeCategoryId == item.id ? 'type-box-font' : ''}}" wx:for-items="{{categories}}" wx:key="id" wx:if="{{item.level == 0}}">
+                <view id="{{item.id}}" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="tabClick">
+                    {{item.name}}
+                </view>
             </view>
-          </view>
+    </scroll-view>
+    
+  <view class="content-container">
 
-        </view>
-      </block>
-    </block>
-  </scroll-view>
+    <scroll-view class="category-container" scroll-y="true" scroll-with-animation="true" scroll-top="{{scrolltop}}">
+      <view wx:if="{{category.pid == activeCategoryId && category.level == 1}}" class="category {{activeSmallId==category.id?'active':''}}" wx:for="{{categories}}" wx:for-item="category" wx:key="id" id="{{category.id}}" bindtap="cateClick">
+        <view class="name {{activeSmallId==category.id?'active':''}}">{{category.name}}</view>
+      </view>
+    </scroll-view>
+
+
+    <scroll-view class="goods-container" scroll-y="true" scroll-top="{{scrolltop}}">
+        <!-- <view class="goods-box" wx:for-items="{{goods}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.id}}">
+           <view class="img-box">
+              <image src="{{item.pic}}_m" class="image" mode="aspectFill" lazy-load="true"/>
+           </view>
+           <view class="goods-title">{{item.name}}</view>
+           <view style='display:flex;'>
+            <view class="goods-price">¥ {{item.minPrice}}</view>
+            <view wx:if="{{item.originalPrice && item.originalPrice > 0}}" class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ {{item.originalPrice}}</view>
+           </view>           
+        </view> -->
+
+        <block wx:for-items="{{goods}}" wx:key="id">
+          <view class='goods-item'>
+
+            <view class="goods-description">
+              <image class='goods-pic' mode='aspectFill' lazy-load="true" src="{{item.pic}}_m" bindtap="toDetailsTap" data-id="{{item.id}}"></image>
+
+              <view class='goods-info'>
+                <view class="goods-title" bindtap="toDetailsTap" data-id="{{item.id}}">{{item.name}}</view>
+                <view class="goods-price">￥{{item.minPrice}}</view>
+              </view>
+            </view>
+
+          </view>
+        </block>
+
+
+
+        
+    </scroll-view>
+    <view hidden="{{loadingMoreHidden ? true : false}}">
+    </view>
+
+
+  </view>
 </view>
