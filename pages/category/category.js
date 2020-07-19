@@ -1,6 +1,7 @@
 // pages/category/category.js
 
 const WXAPI = require('../../wxapi/main')
+var app = getApp()
 
 Page({
   data: {
@@ -68,6 +69,7 @@ Page({
     })  
   },
   onLoad: function () {
+
     var that = this
     wx.setNavigationBarTitle({
       title: wx.getStorageSync('mallName')
@@ -75,7 +77,11 @@ Page({
     WXAPI.goodsCategory().then(function(res) {
         console.log('111111111111111111111');
         console.log(res);
-        var categories = [{id:2, name:"水"}];
+        var catagory_switch_id = 2
+        if (app.globalData.catagory_switch_id) {
+          catagory_switch_id = app.globalData.catagory_switch_id;
+        }
+        var categories = [{id:catagory_switch_id, name:"水"}];
         if (res.code == 0) {
           for (var i = 0; i < res.data.length; i++) {
             categories.push(res.data[i]);
@@ -83,12 +89,13 @@ Page({
         }
         that.setData({
           categories:categories,
-          activeCategoryId:2,
+          activeCategoryId:catagory_switch_id,
           curPage: 1
         });
-        that.getGoodsList(2);
+        that.getGoodsList(catagory_switch_id);
       })
   },
+
   onPageScroll(e) {
     let scrollTop = this.data.scrollTop
     this.setData({

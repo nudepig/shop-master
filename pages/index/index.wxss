@@ -76,6 +76,24 @@ swiper-item image {
   box-sizing: content-box;
   padding: 24rpx;
 }
+.top-column {
+  width: 678rpx;
+  height: 530rpx;
+  display: flex;
+  flex-direction: column;
+}
+.top-column .img-top {
+  width: 200rpx;
+  height: 50rpx;
+  margin-bottom: 30rpx;
+}
+.top-column .img-top .image_title{
+  width: 220rpx;
+  height: 50rpx;
+}
+
+
+
 .goods-box{
   width: 678rpx;
   height: 472rpx;
@@ -86,20 +104,33 @@ swiper-item image {
   display: flex;
   flex-direction: row;
 }
-.goods-box .img-box{
-  width: 320rpx;
+.goods-box-reverse{
+  width: 678rpx;
   height: 472rpx;
+  background-color: #fff;
+  /* overflow: hidden; */
+  margin-bottom: 24rpx;
+  margin-left: 20rpx;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+
+
+.img-box{
+  width: 320rpx;
+  height: 390rpx;
   /* overflow: hidden; */
 }
-.goods-box .img-box image{
+.img-box .image{
    width: 320rpx;
    height: 390rpx;
 }
-.goods-box .img-box image_title{
-  width: 188rpx;
-  height: 22rpx;
-}
-.goods-box .goods-title{
+
+
+
+.goods-title{
   width: 280rpx;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -109,7 +140,7 @@ swiper-item image {
   color:#000;
   margin-left: 24rpx;
 }
-.goods-box .goods-price{
+.goods-price{
   width: 280rpx;
   overflow: hidden;
   font-size: 24rpx;
@@ -265,10 +296,10 @@ swiper-item image {
   font-size: 24rpx;
   padding: 20rpx 0;
   color:#e64340;
-  margin-left: 5rpx;
+  /* margin-left: 5rpx; */
 }
 .goods-play-name{
-  width: 170rpx;
+  width: 180rpx;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -280,11 +311,11 @@ swiper-item image {
 }
 .goods-play-item {
   width: 358rpx;
-  height: 175rpx;
+  height: 173.5rpx;
   display: flex;
   padding: 10rpx;
   flex-direction: row-reverse;
-  margin-right: 5rpx;
+  /* margin-right: 5rpx; */
   /* align-items: center; */
   /* justify-content: flex-start; */
   /* border-bottom: 1rpx solid #f2f2f2; */

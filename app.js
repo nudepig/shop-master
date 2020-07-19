@@ -137,6 +137,7 @@ App({
   globalData: {                
     isConnected: true,
     launchOption: undefined,
-    vipLevel: 0
+    vipLevel: 0,
+    catagory_switch_id : null
   }
 })

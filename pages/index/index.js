@@ -53,6 +53,23 @@ Page({
       url: "/pages/goods-details/index?id=" + e.currentTarget.dataset.id
     })
   },
+  toCategory: function(e) {
+    console.log('33333333333333333333333333333333');
+    console.log(e);
+    app.globalData.catagory_switch_id = e.currentTarget.dataset.id;
+    wx.switchTab({
+      url: "/pages/category/category",
+      success(res){
+        let page = getCurrentPages().pop();
+        if(page == undefined || page == null){
+              return
+        }
+        page.onLoad();
+  }
+    })
+    console.log('555555555555555')
+    console.log(app.globalData.catagory_switch_id)
+  },
   tapBanner: function(e) {
     if (e.currentTarget.dataset.id != 0) {
       wx.navigateTo({
@@ -173,65 +190,6 @@ Page({
           hasNoCoupons: false,
           coupons: res.data
         });
-      }
-    })
-  },
-  gitCoupon: function(e) {
-    const that = this
-    if (e.currentTarget.dataset.pwd) {
-      wx.navigateTo({
-        url: "/pages/fetch-coupon/index?id=" + e.currentTarget.dataset.id
-      })
-      return
-    }
-    WXAPI.fetchCoupons({
-      id: e.currentTarget.dataset.id,
-      token: wx.getStorageSync('token')
-    }).then(function (res) {
-      if (res.code == 20001 || res.code == 20002) {
-        wx.showModal({
-          title: '错误',
-          content: '来晚了',
-          showCancel: false
-        })
-        return;
-      }
-      if (res.code == 20003) {
-        wx.showModal({
-          title: '错误',
-          content: '你领过了，别贪心哦~',
-          showCancel: false
-        })
-        return;
-      }
-      if (res.code == 30001) {
-        wx.showModal({
-          title: '错误',
-          content: '您的积分不足',
-          showCancel: false
-        })
-        return;
-      }
-      if (res.code == 20004) {
-        wx.showModal({
-          title: '错误',
-          content: '已过期~',
-          showCancel: false
-        })
-        return;
-      }
-      if (res.code == 0) {
-        wx.showToast({
-          title: '领取成功，赶紧去下单吧~',
-          icon: 'success',
-          duration: 2000
-        })
-      } else {
-        wx.showModal({
-          title: '错误',
-          content: res.msg,
-          showCancel: false
-        })
       }
     })
   },
