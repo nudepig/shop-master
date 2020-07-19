@@ -16,15 +16,7 @@
             </block>  
         </view>  
    </view>
-    <view class="type-container">
-        <scroll-view class="type-navbar" scroll-x="true" scroll-left="{{cateScrollTop}}">
-            <view class="type-box" wx:for-items="{{categories}}" wx:key="id">
-                <view id="{{item.id}}" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="tabClick">
-                    {{item.name}}
-                </view>
-            </view>
-        </scroll-view>
-    </view>
+    
     <view class="search-view" style="background:{{ scrollTop === 0 ?'-webkit-linear-gradient(top, rgba(179,42,34, 1), rgba(179,42,34, 0.3))' :( scrollTop<200 ? 'rgba(179,42,34,'+(scrollTop/400+0.3) +')' : 'rgba(179,42,34,0.6)')  }} ">
     <view class="search-content">
       <image src="/images/search-pic.png" class="search-icon" />
@@ -44,29 +36,43 @@
         </navigator>
       </swiper>
     </view>
-    <view class="coupons" hidden="{{hasNoCoupons}}">
-        <scroll-view class="coupons-scroll" scroll-x="true">
-            <view class="coupons-item" wx:for-items="{{coupons}}" wx:for-index="idx" wx:key="id"  bindtap="gitCoupon" data-id="{{item.id}}" data-pwd="{{item.pwd}}">
-               <view style="font-size: 35rpx" wx:if="{{item.moneyMin == item.moneyMax}}"> ￥ {{item.moneyMax}} </view>
-               <view style="font-size: 35rpx" wx:else> ￥ {{item.moneyMin}} - {{item.moneyMax}} </view>
-               <view> {{item.name}} </view>
-               <view> 满 {{item.moneyHreshold}} 元使用 </view>
-               <view wx:if="{{item.dateEndType == 0}}"> {{item.dateEnd}} 前有效 </view>
-               <view wx:if="{{item.dateEndType == 1}}"> 领取 {{item.dateEndDays}} 天内有效 </view>
-            </view>
-        </scroll-view>
+
+    <view class='space'></view>
+    <view class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">爆款推荐</view>
     </view>
+
     <view class="goods-container">
-        <view class="goods-box" wx:for-items="{{goods}}" wx:key="{{index}}" bindtap="toDetailsTap" data-id="{{item.id}}">
+        
+        <view class="goods-box" wx:if="{{item.level == 0}}" wx:for-items="{{categories}}" wx:key="id" data-id="{{item.id}}">
+
+          <!-- <view class="goods-name">{{item.name}}</view> -->
+
+
            <view class="img-box">
-              <image src="{{item.pic}}_m" class="image" mode="aspectFill" lazy-load="true"/>
+              <!-- <image src="{{item.icon_title}}_m" class="image_title" mode="aspectFill" lazy-load="true"/> -->
+              <image src="{{item.icon}}_m" class="image" mode="aspectFill" lazy-load="true"/>
            </view>
-           <view class="goods-title">{{item.name}}</view>
-           <view style='display:flex;'>
-            <view class="goods-price">¥ {{item.minPrice}}</view>
-            <view wx:if="{{item.originalPrice && item.originalPrice > 0}}" class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ {{item.originalPrice}}</view>
-           </view>           
+          
+          <view class='goods-play-column'>
+            <view class='goods-play-item' wx:for="{{item.product_recommend}}" wx:for-item="product" wx:key="id">
+                
+                  <image src="{{product.icon}}_m" class="play-image" mode="aspectFill" lazy-load="true"/>
+                  
+                  <view class='goods-play-info'>
+                    <view class="goods-play-name">{{product.name}}</view>
+                    <view class="goods-play-price">￥{{product.price}}</view>
+                  </view>
+                
+            </view>
+           </view>
+                  
         </view>
     </view>
+
+
+    
+
+    
     <view hidden="{{loadingMoreHidden ? true : false}}" class="no-more-goods">没有更多啦</view>
 </view>
