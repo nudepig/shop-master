@@ -43,7 +43,7 @@ Page({
   },
   //事件处理函数
   swiperchange: function(e) {
-    //console.log(e.detail.current)
+    
     this.setData({
       swiperCurrent: e.detail.current
     })
@@ -54,8 +54,7 @@ Page({
     })
   },
   toCategory: function(e) {
-    console.log('33333333333333333333333333333333');
-    console.log(e);
+
     app.globalData.catagory_switch_id = e.currentTarget.dataset.id;
     wx.switchTab({
       url: "/pages/category/category",
@@ -67,8 +66,7 @@ Page({
         page.onLoad();
   }
     })
-    console.log('555555555555555')
-    console.log(app.globalData.catagory_switch_id)
+    
   },
   tapBanner: function(e) {
     if (e.currentTarget.dataset.id != 0) {

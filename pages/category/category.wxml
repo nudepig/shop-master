@@ -1,4 +1,3 @@
-
 <view class="container">
     <view class="search-content">
       <image src="/images/search-pic.png" class="search-icon" />
@@ -7,7 +6,6 @@
       <button class='search-btn' bindtap="toSearch">搜索
       </button>
     </view>
-
 
     <scroll-view class="type-navbar" scroll-x="true" scroll-top="{{scrolltop}}">
             <view class="type-box {{activeCategoryId == item.id ? 'type-box-font' : ''}}" wx:for-items="{{categories}}" wx:key="id" wx:if="{{item.level == 0}}">
@@ -25,19 +23,7 @@
       </view>
     </scroll-view>
 
-
     <scroll-view class="goods-container" scroll-y="true" scroll-with-animation="true" scroll-top="{{scrolltop}}">
-        <!-- <view class="goods-box" wx:for-items="{{goods}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.id}}">
-           <view class="img-box">
-              <image src="{{item.pic}}_m" class="image" mode="aspectFill" lazy-load="true"/>
-           </view>
-           <view class="goods-title">{{item.name}}</view>
-           <view style='display:flex;'>
-            <view class="goods-price">¥ {{item.minPrice}}</view>
-            <view wx:if="{{item.originalPrice && item.originalPrice > 0}}" class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ {{item.originalPrice}}</view>
-           </view>           
-        </view> -->
-
         <block wx:for-items="{{goods}}" wx:key="id">
           <view class='goods-item'>
 
@@ -52,9 +38,6 @@
 
           </view>
         </block>
-
-
-
         
     </scroll-view>
     <view hidden="{{loadingMoreHidden ? true : false}}">

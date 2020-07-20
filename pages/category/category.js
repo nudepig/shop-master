@@ -46,7 +46,6 @@ Page({
   },
   //事件处理函数
   swiperchange: function(e) {
-      //console.log(e.detail.current)
        this.setData({  
         swiperCurrent: e.detail.current  
     })  
@@ -75,13 +74,11 @@ Page({
       title: wx.getStorageSync('mallName')
     })
     WXAPI.goodsCategory().then(function(res) {
-        console.log('111111111111111111111');
-        console.log(res);
         var catagory_switch_id = 2
         if (app.globalData.catagory_switch_id) {
           catagory_switch_id = app.globalData.catagory_switch_id;
         }
-        var categories = [{id:catagory_switch_id, name:"水"}];
+        var categories = [{id:catagory_switch_id, name:""}];
         if (res.code == 0) {
           for (var i = 0; i < res.data.length; i++) {
             categories.push(res.data[i]);
@@ -117,8 +114,6 @@ Page({
       "mask":true
     })
     WXAPI.goods(data).then(function(res) {
-        console.log('22222222222222222')
-        console.log(res);
         wx.hideLoading()        
         if (res.code == 404 || res.code == 700){
           let newData = { loadingMoreHidden: false }

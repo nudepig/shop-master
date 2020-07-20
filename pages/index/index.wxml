@@ -17,15 +17,6 @@
         </view>  
    </view>
     
-    <view class="search-view" style="background:{{ scrollTop === 0 ?'-webkit-linear-gradient(top, rgba(179,42,34, 1), rgba(179,42,34, 0.3))' :( scrollTop<200 ? 'rgba(179,42,34,'+(scrollTop/400+0.3) +')' : 'rgba(179,42,34,0.6)')  }} ">
-    <view class="search-content">
-      <image src="/images/search-pic.png" class="search-icon" />
-      <input placeholder="请输入搜索内容" class="search-input" maxlength="30" confirm-type="搜索" bindinput='listenerSearchInput' bindconfirm='toSearch'>
-      </input>
-      <button class='search-btn' bindtap="toSearch">搜索
-      </button>
-    </view>
-  </view>
     <view wx:if="{{noticeList}}" class="notice">
       <view class="notice_iteml">公告：</view>
       <swiper wx:if="{{noticeList}}" class="notice_swiper" vertical="true" autoplay="true" circular="true" interval="3000">
@@ -46,7 +37,6 @@
         
         <view class="top-column" wx:if="{{item.level == 0}}" wx:for-items="{{categories}}" wx:key="id" data-id="{{item.id}}">
 
-              <!-- <view class="goods-name">{{item.name}}</view> -->
               <view class="img-top">
                 <image src="{{item.icon_title}}_m" class="image_title" mode="aspectFill" lazy-load="true"/>
               </view>
@@ -55,7 +45,7 @@
               <view class="{{item.icon_site=='right'?'goods-box-reverse':'goods-box'}}">
                 
                   <view class="img-box">
-                      <!-- <image src="{{item.icon_title}}_m" class="image_title" mode="aspectFill" lazy-load="true"/> -->
+                      
                       <image src="{{item.icon}}_m" class="image" mode="aspectFill" lazy-load="true" data-id='{{item.id}} 'bindtap='toCategory'/>
                   </view>
                   
@@ -76,9 +66,5 @@
         </view>
     </view>
 
-
-    
-
-    
     <view hidden="{{loadingMoreHidden ? true : false}}" class="no-more-goods">没有更多啦</view>
 </view>
