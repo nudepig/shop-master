@@ -74,7 +74,7 @@ Page({
       title: wx.getStorageSync('mallName')
     })
     WXAPI.goodsCategory().then(function(res) {
-        var catagory_switch_id = 2
+        var catagory_switch_id = 37
         if (app.globalData.catagory_switch_id) {
           catagory_switch_id = app.globalData.catagory_switch_id;
         }

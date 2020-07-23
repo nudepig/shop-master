@@ -2,7 +2,7 @@ module.exports = {
   version: "6.5.1",
   note: '云辅材',
   subDomain: "yunfc", // 如果你的域名是： https://api.it120.cc/abcd 那么这里只要填写 abcd
-  appid: "	wx56b7e18475247d94", // 您的小程序的appid，购物单功能需要使用
+  appid: "wxd1022bdc165c2df4", // 您的小程序的appid，购物单功能需要使用
   shareProfile: '装修辅材一站式配送平台' // 首页转发的时候话术
 }
 /*

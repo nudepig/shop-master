@@ -1,6 +1,6 @@
 // 小程序开发api接口工具包，https://github.com/gooking/wxapi
 const CONFIG = require('./config.js')
-const API_BASE_URL = 'https://www.auroral.top/'
+const API_BASE_URL = 'https://erp.yunfc.net'
 
 
 const request = (url, needSubDomain, method, data) => {
