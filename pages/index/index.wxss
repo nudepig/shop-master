@@ -14,12 +14,6 @@
   height:562.5rpx;
 }
 
-swiper-item image {
-  width: 100%;
-  display: inline-block;
-  overflow: hidden;
-  height:562.5rpx;
-}
 .swiper-container .dots{  
   position: absolute;  
   left: 0;  
@@ -86,6 +80,7 @@ swiper-item image {
   width: 200rpx;
   height: 50rpx;
   margin-bottom: 30rpx;
+  overflow: hidden;
 }
 .top-column .img-top .image_title{
   width: 220rpx;
@@ -287,8 +282,9 @@ swiper-item image {
 .goods-play-info {
   display: flex;
   flex-direction: column;
-  padding: 0px 5rpx 0rpx 5rpx;
+  padding: 0rpx 5rpx 0rpx 5rpx;
   height: 150rpx;
+  overflow: hidden;
   /* justify-content: space-between; */
 }
 .goods-play-price{

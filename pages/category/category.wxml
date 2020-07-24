@@ -23,7 +23,7 @@
       </view>
     </scroll-view>
 
-    <scroll-view class="goods-container" scroll-y="true" scroll-with-animation="true" scroll-top="{{scrolltop}}">
+    <scroll-view class="goods-container" bindscrolltolower="onReachBottom" scroll-y="true" scroll-with-animation="true" scroll-top="{{scrolltop}}">
         <block wx:for-items="{{goods}}" wx:key="id">
           <view class='goods-item'>
 
@@ -38,10 +38,11 @@
 
           </view>
         </block>
-        
+        <view class="weui-loadmore weui-loadmore_line" style='margin-top:60rpx;margin-bottom:30rpx;' hidden="{{loadingMoreHidden ? true : false}}">
+          <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多啦</view>
+          </view>
     </scroll-view>
-    <view hidden="{{loadingMoreHidden ? true : false}}">
-    </view>
+    
 
 
   </view>

@@ -133,6 +133,7 @@ Page({
         that.setData({
           loadingMoreHidden: true,
           goods:goods,
+
         });
       })
   },
@@ -148,16 +149,16 @@ Page({
     });
     this.getGoodsList(this.data.activeCategoryId);
   },
+  onPullDownRefresh: function(){
+    this.setData({
+      curPage: 1
+    });
+    this.getGoodsList(this.data.activeCategoryId)
+  },
   onReachBottom: function () {
     this.setData({
       curPage: this.data.curPage+1
     });
     this.getGoodsList(this.data.activeCategoryId, true)
   },
-  onPullDownRefresh: function(){
-    this.setData({
-      curPage: 1
-    });
-    this.getGoodsList(this.data.activeCategoryId)
-  }
 })
