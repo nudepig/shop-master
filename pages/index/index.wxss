@@ -87,7 +87,7 @@ swiper-item image {
   width: 200rpx;
   height: 50rpx;
   margin-bottom: 30rpx;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .top-column .img-top .image_title{
   width: 220rpx;
