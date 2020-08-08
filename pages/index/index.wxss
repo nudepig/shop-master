@@ -79,23 +79,20 @@ swiper-item image {
 }
 .top-column {
   width: 678rpx;
-  height: 530rpx;
+  height: 560rpx;
   display: flex;
   flex-direction: column;
 }
 .top-column .img-top {
-  width: 200rpx;
-  height: 50rpx;
+  width: 250rpx;
+  height: 60rpx; 
   margin-bottom: 30rpx;
   /* overflow: hidden; */
 }
 .top-column .img-top .image_title{
-  width: 220rpx;
-  height: 50rpx;
+  width: 250rpx;
+  height: 60rpx;
 }
-
-
-
 .goods-box{
   width: 678rpx;
   height: 472rpx;
@@ -118,16 +115,14 @@ swiper-item image {
   flex-direction: row-reverse;
 }
 
-
-
 .img-box{
-  width: 320rpx;
-  height: 390rpx;
+  width: 348rpx;
+  height: 424rpx;
   /* overflow: hidden; */
 }
 .img-box .image{
-   width: 320rpx;
-   height: 390rpx;
+   width: 348rpx;
+   height: 424rpx;
 }
 
 
@@ -313,24 +308,22 @@ swiper-item image {
   font-weight: bold;
 }
 .goods-play-item {
-  width: 358rpx;
-  height: 173.5rpx;
+  width: 348rpx;
+  height: 209rpx;
   display: flex;
-  padding: 10rpx;
+  /* padding: 10rpx; */
   flex-direction: row-reverse;
   /* margin-right: 5rpx; */
   /* align-items: center; */
   /* justify-content: flex-start; */
   /* border-bottom: 1rpx solid #f2f2f2; */
-  
   border: 1rpx solid #f2f2f2;
 }
-
-
 .goods-play-item .play-image {
   width: 150rpx;
   height: 150rpx;
   flex-shrink: 0;
+  margin: 5rpx;
 }
 .goods-play-column {
   display: flex;

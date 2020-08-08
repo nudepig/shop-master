@@ -261,7 +261,7 @@ swiper-item image {
 
 
 .category-container {
-  width: 180rpx;
+  width: 200rpx;
   height: 100%;
 }
 .category-container .category {
@@ -275,7 +275,7 @@ swiper-item image {
 
 .category-container .category .name {
   display: inline-block;
-  font-size: 36rpx;
+  font-size: 30rpx;
   color: #646464;
   line-height: 1.2;
   text-align: left;

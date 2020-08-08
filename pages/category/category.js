@@ -14,7 +14,7 @@ Page({
     swiperCurrent: 0,  
     selectCurrent:0,
     categories: [],
-    activeCategoryId: 0,
+    activeCategoryId: 37,
     activeSmallId: 0,
     goods:[],
     scrollTop:0,
@@ -74,7 +74,7 @@ Page({
       title: wx.getStorageSync('mallName')
     })
     WXAPI.goodsCategory().then(function(res) {
-        var catagory_switch_id = 37
+        var catagory_switch_id = that.data.activeCategoryId;
         if (app.globalData.catagory_switch_id) {
           catagory_switch_id = app.globalData.catagory_switch_id;
         }
@@ -159,6 +159,6 @@ Page({
     this.setData({
       curPage: this.data.curPage+1
     });
-    this.getGoodsList(this.data.activeCategoryId, true)
+    this.getGoodsList(this.data.activeSmallId, true)
   },
 })
