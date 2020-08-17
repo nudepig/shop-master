@@ -287,12 +287,13 @@ swiper-item image {
   padding: 0rpx 5rpx 0rpx 5rpx;
   height: 150rpx;
   overflow: hidden;
+  margin: 50rpx 5rpx 10rpx 10rpx;
   /* justify-content: space-between; */
 }
 .goods-play-price{
   overflow: hidden;
   font-size: 24rpx;
-  padding: 20rpx 0;
+  padding: 30rpx 0;
   color:#e64340;
   /* margin-left: 5rpx; */
 }
@@ -323,7 +324,7 @@ swiper-item image {
   width: 150rpx;
   height: 150rpx;
   flex-shrink: 0;
-  margin: 5rpx;
+  margin: 30rpx 5rpx 0 5rpx;
 }
 .goods-play-column {
   display: flex;
