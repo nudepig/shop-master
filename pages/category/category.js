@@ -128,6 +128,7 @@ Page({
           goods = that.data.goods
         }        
         for(var i=0;i<res.data.length;i++){
+          
           goods.push(res.data[i]);
         }
         that.setData({

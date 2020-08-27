@@ -32,7 +32,7 @@
 
               <view class='goods-info'>
                 <view class="goods-title" bindtap="toDetailsTap" data-id="{{item.id}}">{{item.name}}</view>
-                <view class="goods-price">￥{{item.minPrice}}</view>
+                <view class="goods-price">￥{{item.originalPrice}}</view>
               </view>
             </view>
 
